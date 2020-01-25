@@ -8,12 +8,15 @@
 
 class BlackImage
 {
+protected:
+    using USHORT = unsigned short;
+    using UCHAR = unsigned char;
 public:
-    BlackImage(unsigned short width, unsigned short height);
+    BlackImage(USHORT width, USHORT height, color default_fill_color = color(0, 0, 0));
     virtual ~BlackImage();
 
     void Clear();
-    int Save(std::string filename) const;
+    int Save(const std::string& filename) const;
 
     std::vector<color> GetFrameBuffer() const; 
 protected:
@@ -21,4 +24,5 @@ protected:
     unsigned short width;
 
     std::vector<color> frame_buffer;
+    color default_fill_color;
 };

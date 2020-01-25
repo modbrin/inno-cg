@@ -3,30 +3,41 @@
 #define STBI_MSC_SECURE_CRT
 #define STB_IMAGE_WRITE_IMPLEMENTATION
 #include "stb_image_write.h"
+#include <algorithm>
+#include <execution>
 
 
-BlackImage::BlackImage(unsigned short width, unsigned short height):
+BlackImage::BlackImage(USHORT width,
+                       USHORT height,
+                       color default_fill_color)
+    :
     width(width),
-    height(height)
+    height(height),
+    default_fill_color(default_fill_color)
 {
-    frame_buffer.reserve(width * height);
+    // arithmetic overflow is secured by users knownledge of resolution
+    frame_buffer.resize(width * height);
 }
 
 BlackImage::~BlackImage()
 {
     frame_buffer.clear();
+    // not really required as vector is a handle for the memory
+    // an will clear itself as a stack value in object instance
 }
 
 void BlackImage::Clear()
 {
-    frame_buffer.resize(width * height);
+    std::fill(std::execution::par, frame_buffer.begin(), frame_buffer.end(), default_fill_color);
+    // `vector::resize` will not delete previous values, only add
+    // default for ones that are added due to size increase
 }
 
-int BlackImage::Save(std::string filename) const
+int BlackImage::Save(const std::string &filename) const
 {
-    int result = stbi_write_png(filename.c_str(), width, height, 3, frame_buffer.data(), width * sizeof(color));
+    auto result = stbi_write_png(filename.c_str(), width, height, 3, frame_buffer.data(), width * sizeof(color));
 
-    return (result - 1); //STD returns 1 if everything is ok, convering to OS return code
+    return (result - 1); //STB returns 1 if everything is ok, convering to OS return code
 }
 
 std::vector<color> BlackImage::GetFrameBuffer() const

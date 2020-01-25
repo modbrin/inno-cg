@@ -7,7 +7,7 @@
 #include <algorithm>
 
 
-LineDrawing::LineDrawing(unsigned short width, unsigned short height): ColorSpace(width, height)
+LineDrawing::LineDrawing(USHORT width, USHORT height): ColorSpace(width, height)
 {
 
 }
@@ -16,14 +16,14 @@ LineDrawing::~LineDrawing()
 {
 }
 
-void LineDrawing::DrawLine(unsigned short x_begin, unsigned short y_begin, unsigned short x_end, unsigned short y_end, color color)
+void LineDrawing::DrawLine(USHORT x_begin, USHORT y_begin, USHORT x_end, USHORT y_end, color color)
 {
 
 }
 
 void LineDrawing::DrawScene()
 {
-
+    DrawLine()
 
 }
 

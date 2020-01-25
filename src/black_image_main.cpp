@@ -1,4 +1,6 @@
 #include "black_image.h"
+#include <filesystem>
+#include <iostream>
 
 int main(int argc, char* argv[])
 {

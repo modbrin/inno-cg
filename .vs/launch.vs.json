@@ -1,0 +1,76 @@
+{
+  "version": "0.2.1",
+  "defaults": {},
+  "configurations": [
+    {
+      "type": "default",
+      "project": "CMakeLists.txt",
+      "projectTarget": "black_image.exe",
+      "name": "black_image.exe",
+      "currentDir": "${workspaceRoot}"
+    },
+    {
+      "type": "default",
+      "project": "CMakeLists.txt",
+      "projectTarget": "black_image_tests.exe",
+      "name": "black_image_tests.exe",
+      "currentDir": "${workspaceRoot}"
+    },
+    {
+      "type": "default",
+      "project": "CMakeLists.txt",
+      "projectTarget": "color_space.exe",
+      "name": "color_space.exe",
+      "currentDir": "${workspaceRoot}"
+    },
+    {
+      "type": "default",
+      "project": "CMakeLists.txt",
+      "projectTarget": "color_space_tests.exe",
+      "name": "color_space_tests.exe",
+      "currentDir": "${workspaceRoot}"
+    },
+    {
+      "type": "default",
+      "project": "CMakeLists.txt",
+      "projectTarget": "draw_line.exe",
+      "name": "draw_line.exe",
+      "currentDir": "${workspaceRoot}"
+    },
+    {
+      "type": "default",
+      "project": "CMakeLists.txt",
+      "projectTarget": "draw_line_tests.exe",
+      "name": "draw_line_tests.exe",
+      "currentDir": "${workspaceRoot}"
+    },
+    {
+      "type": "default",
+      "project": "CMakeLists.txt",
+      "projectTarget": "read_obj.exe",
+      "name": "read_obj.exe",
+      "currentDir": "${workspaceRoot}"
+    },
+    {
+      "type": "default",
+      "project": "CMakeLists.txt",
+      "projectTarget": "read_obj_tests.exe",
+      "name": "read_obj_tests.exe",
+      "currentDir": "${workspaceRoot}"
+    },
+    {
+      "type": "default",
+      "project": "CMakeLists.txt",
+      "projectTarget": "projection.exe",
+      "name": "projection.exe",
+      "currentDir": "${workspaceRoot}"
+    },
+    {
+      "type": "default",
+      "project": "CMakeLists.txt",
+      "projectTarget": "projection_tests.exe",
+      "name": "projection_tests.exe",
+      "currentDir": "${workspaceRoot}"
+    }
+  ]
+}

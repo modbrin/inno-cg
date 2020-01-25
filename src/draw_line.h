@@ -8,10 +8,10 @@
 class LineDrawing: public ColorSpace
 {
 public:
-	LineDrawing(unsigned short width, unsigned short height);
+	LineDrawing(USHORT width, USHORT height);
 	virtual ~LineDrawing();
 
-	void DrawLine(unsigned short x_begin, unsigned short y_begin, unsigned short x_end, unsigned short y_end, color color);
+	void DrawLine(USHORT x_begin, USHORT y_begin, USHORT x_end, USHORT y_end, color color);
 
 	void DrawScene();
 

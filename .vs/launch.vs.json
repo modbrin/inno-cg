@@ -14,6 +14,7 @@
       "project": "CMakeLists.txt",
       "projectTarget": "black_image_tests.exe",
       "name": "black_image_tests.exe",
+      "args": ["--benchmark-samples", "25"],
       "currentDir": "${workspaceRoot}"
     },
     {
@@ -28,6 +29,7 @@
       "project": "CMakeLists.txt",
       "projectTarget": "color_space_tests.exe",
       "name": "color_space_tests.exe",
+      "args": [ "--benchmark-samples", "25" ],
       "currentDir": "${workspaceRoot}"
     },
     {
@@ -42,6 +44,7 @@
       "project": "CMakeLists.txt",
       "projectTarget": "draw_line_tests.exe",
       "name": "draw_line_tests.exe",
+      "args": [ "--benchmark-samples", "25" ],
       "currentDir": "${workspaceRoot}"
     },
     {
@@ -56,6 +59,7 @@
       "project": "CMakeLists.txt",
       "projectTarget": "read_obj_tests.exe",
       "name": "read_obj_tests.exe",
+      "args": [ "--benchmark-samples", "25" ],
       "currentDir": "${workspaceRoot}"
     },
     {
@@ -70,6 +74,7 @@
       "project": "CMakeLists.txt",
       "projectTarget": "projection_tests.exe",
       "name": "projection_tests.exe",
+      "args": [ "--benchmark-samples", "25" ],
       "currentDir": "${workspaceRoot}"
     }
   ]

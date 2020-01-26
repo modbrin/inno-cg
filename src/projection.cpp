@@ -6,17 +6,15 @@
 #include <iostream>
 
 
-Projection::Projection(unsigned short width, unsigned short height, std::string obj_file) : ReadObj(width, height, obj_file)
-{
-}
+Projection::Projection(USHORT width, USHORT height, const std::string& obj_file)
+    :
+    ReadObj(width, height, obj_file)
+{}
 
 Projection::~Projection()
-{
-}
+{}
 
 void Projection::DrawScene()
 {
-
+    
 }
-
-

@@ -29,10 +29,8 @@ struct color
 	}
 };
 
-
-
-
+#define FACE_VERTEX_COUNT 3
 struct face
 {
-	float4 vertexes[3];
+	float4 vertices[FACE_VERTEX_COUNT];
 };

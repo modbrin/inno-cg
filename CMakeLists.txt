@@ -1,4 +1,3 @@
-
 cmake_minimum_required(VERSION 3.8)
 project(inno-cg)
 
@@ -15,7 +14,7 @@ include_directories(src)
 # custom function for building apps and tests
 function(ADD_EXEC_TESTS)
     cmake_parse_arguments(PARSED "" "NAME" "DEPS" ${ARGN})
-    
+
     # check if values are provided
     if(NOT PARSED_NAME)
         message(FATAL_ERROR "Target name is missing.")

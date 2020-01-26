@@ -7,7 +7,7 @@
 class Projection: public ReadObj
 {
 public:
-	Projection(unsigned short width, unsigned short height, std::string obj_file);
+	Projection(USHORT width, USHORT height, const std::string& obj_file);
 	virtual ~Projection();
 
 	void DrawScene();

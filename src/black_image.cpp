@@ -28,7 +28,7 @@ BlackImage::~BlackImage()
 
 void BlackImage::Clear()
 {
-    std::fill(std::execution::par, frame_buffer.begin(), frame_buffer.end(), default_fill_color);
+    std::fill(frame_buffer.begin(), frame_buffer.end(), default_fill_color);
     // `vector::resize` will not delete previous values, only add
     // default for ones that are added due to size increase
 }

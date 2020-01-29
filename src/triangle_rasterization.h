@@ -7,7 +7,7 @@
 class TriangleRasterization: public Projection
 {
 public:
-	TriangleRasterization(unsigned short width, unsigned short height, std::string obj_file);
+	TriangleRasterization(USHORT width, USHORT height, const std::string& obj_file);
 	virtual ~TriangleRasterization();
 
 	void DrawScene();

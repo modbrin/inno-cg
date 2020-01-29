@@ -47,11 +47,14 @@ void LineDrawing::DrawLine(USHORT x_begin, USHORT y_begin, USHORT x_end, USHORT 
 	float error = dx / 2;
 
 	for (USHORT x = x_begin; x <= x_end; ++x) {
+
 		// translate coordinated for coverted slope
 		if (steep) {
+			if (x >= height || y >= width || x < 0 || y < 0) continue;
 			SetPixel(y, x, color);
 		}
 		else {
+			if (x >= width || y >= height || x < 0 || y < 0) continue;
 			SetPixel(x, y, color);
 		}
 

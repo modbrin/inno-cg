@@ -2,7 +2,7 @@
 
 int main(int argc, char* argv[])
 {
-    TriangleRasterization* render = new TriangleRasterization(1920, 1080, "models/cube.obj");
+    TriangleRasterization* render = new TriangleRasterization(1920, 1080, "models/head.obj");
     render->Clear();
     render->DrawScene();
     int result = render->Save("results/triangle_rasterization.png");

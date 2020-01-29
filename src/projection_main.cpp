@@ -2,7 +2,7 @@
 
 int main(int argc, char* argv[])
 {
-    Projection* render = new Projection(1920, 1080, "models/cube.obj");
+    Projection* render = new Projection(1920, 1080, "models/head.obj");
     render->Clear();
     render->DrawScene();
     int result = render->Save("results/projection.png");

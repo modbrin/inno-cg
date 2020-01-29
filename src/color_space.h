@@ -12,5 +12,5 @@ public:
 	void DrawScene();
 
 protected:
-	void SetPixel(unsigned short x, unsigned short y, color color);
+	void SetPixel(USHORT x, USHORT y, color color);
 };

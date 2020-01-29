@@ -60,3 +60,20 @@ ADD_EXEC_TESTS(NAME projection DEPS src/black_image.cpp
                                     src/draw_line.cpp
                                     src/read_obj.cpp
                                     src/projection.cpp)
+
+# 5) TRIANGLE RASTERIZATION  --------------------------------------
+ADD_EXEC_TESTS(NAME triangle_rasterization DEPS src/black_image.cpp
+                                    src/color_space.cpp
+                                    src/draw_line.cpp
+                                    src/read_obj.cpp
+                                    src/projection.cpp
+                                    src/triangle_rasterization.cpp)
+
+# 5) Z BUFFER CULLING  --------------------------------------------
+ADD_EXEC_TESTS(NAME z_buffer_culling DEPS src/black_image.cpp
+                                    src/color_space.cpp
+                                    src/draw_line.cpp
+                                    src/read_obj.cpp
+                                    src/projection.cpp
+                                    src/triangle_rasterization.cpp
+                                    src/z_buffer_culling.cpp)

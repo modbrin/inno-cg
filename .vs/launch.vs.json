@@ -14,7 +14,7 @@
       "project": "CMakeLists.txt",
       "projectTarget": "black_image_tests.exe",
       "name": "black_image_tests.exe",
-      "args": ["--benchmark-samples", "25"],
+      "args": [ "--benchmark-samples", "25" ],
       "currentDir": "${workspaceRoot}"
     },
     {
@@ -74,6 +74,36 @@
       "project": "CMakeLists.txt",
       "projectTarget": "projection_tests.exe",
       "name": "projection_tests.exe",
+      "args": [ "--benchmark-samples", "25" ],
+      "currentDir": "${workspaceRoot}"
+    },
+    {
+      "type": "default",
+      "project": "CMakeLists.txt",
+      "projectTarget": "triangle_rasterization.exe",
+      "name": "triangle_rasterization.exe",
+      "currentDir": "${workspaceRoot}"
+    },
+    {
+      "type": "default",
+      "project": "CMakeLists.txt",
+      "projectTarget": "triangle_rasterization_tests.exe",
+      "name": "triangle_rasterization_tests.exe",
+      "args": [ "--benchmark-samples", "25" ],
+      "currentDir": "${workspaceRoot}"
+    },
+    {
+      "type": "default",
+      "project": "CMakeLists.txt",
+      "projectTarget": "z_buffer_culling.exe",
+      "name": "z_buffer_culling.exe",
+      "currentDir": "${workspaceRoot}"
+    },
+    {
+      "type": "default",
+      "project": "CMakeLists.txt",
+      "projectTarget": "z_buffer_culling_tests.exe",
+      "name": "z_buffer_culling_tests.exe",
       "args": [ "--benchmark-samples", "25" ],
       "currentDir": "${workspaceRoot}"
     }

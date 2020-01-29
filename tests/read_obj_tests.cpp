@@ -12,17 +12,17 @@ TEST_CASE("OBJ parser test") {
     REQUIRE(return_code == 0);
     REQUIRE(parser->GetFaces().size() == 12);
 
-    REQUIRE(parser->GetFaces()[0].vertexes[0].x == -0.5);
-    REQUIRE(parser->GetFaces()[0].vertexes[1].x == -0.5);
-    REQUIRE(parser->GetFaces()[0].vertexes[2].x == 0.5);
+    REQUIRE(parser->GetFaces()[0].vertices[0].x == -0.5);
+    REQUIRE(parser->GetFaces()[0].vertices[1].x == -0.5);
+    REQUIRE(parser->GetFaces()[0].vertices[2].x == 0.5);
 
-    REQUIRE(parser->GetFaces()[0].vertexes[0].y == 0.5);
-    REQUIRE(parser->GetFaces()[0].vertexes[1].y == 0.5);
-    REQUIRE(parser->GetFaces()[0].vertexes[2].y == 0.5);
+    REQUIRE(parser->GetFaces()[0].vertices[0].y == 0.5);
+    REQUIRE(parser->GetFaces()[0].vertices[1].y == 0.5);
+    REQUIRE(parser->GetFaces()[0].vertices[2].y == 0.5);
 
-    REQUIRE(parser->GetFaces()[0].vertexes[0].z == -0.5);
-    REQUIRE(parser->GetFaces()[0].vertexes[1].z == 0.5);
-    REQUIRE(parser->GetFaces()[0].vertexes[2].z == 0.5);
+    REQUIRE(parser->GetFaces()[0].vertices[0].z == -0.5);
+    REQUIRE(parser->GetFaces()[0].vertices[1].z == 0.5);
+    REQUIRE(parser->GetFaces()[0].vertices[2].z == 0.5);
 
 }
 

@@ -12,9 +12,6 @@ Projection::Projection(USHORT width, USHORT height, const std::string& obj_file)
     ReadObj(width, height, obj_file)
 {}
 
-Projection::~Projection()
-{}
-
 void Projection::ProjectScene(std::vector<face>& faces)
 {
     auto angle = 30.f * M_PI / 180.f;

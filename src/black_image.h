@@ -13,7 +13,6 @@ protected:
     using UCHAR = unsigned char;
 public:
     BlackImage(USHORT width, USHORT height, color default_fill_color = color(0, 0, 0));
-    virtual ~BlackImage();
 
     void Clear();
     int Save(const std::string& filename) const;

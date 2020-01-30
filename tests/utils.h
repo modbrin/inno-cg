@@ -11,8 +11,7 @@ bool validate_framebuffer(std::string reference_file, std::vector<color> frame_b
     int width, height, channels;
     unsigned char* img = stbi_load(reference_file.c_str(), &width, &height, &channels, 0);
 
-    if (!img)
-        return false;
+    if (!img) return false;
 
     // Convert the reference to vector of colors
     std::vector<color> reference;

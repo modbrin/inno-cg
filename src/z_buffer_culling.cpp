@@ -12,10 +12,6 @@ ZCulling::ZCulling(USHORT width, USHORT height, const std::string& obj_file) : T
     depth_buffer.resize(width * height);
 }
 
-ZCulling::~ZCulling()
-{
-}
-
 void ZCulling::DrawScene()
 {
     auto result = parser->Parse();
@@ -32,7 +28,9 @@ void ZCulling::DrawScene()
     USHORT wShift = width / 2;
     USHORT hShift = height / 2;
 
+    int counter = 0;
     for (const auto& face : faces) {
+        std::cout << "Done " << ++counter << " triangles." << std::endl;
         float4 triangle[3] = { face.vertices[0] * scale + float4(wShift, hShift, 0, 0),
                               face.vertices[1] * scale + float4(wShift, hShift, 0, 0),
                               face.vertices[2] * scale + float4(wShift, hShift, 0, 0) };
@@ -70,15 +68,15 @@ void ZCulling::DrawTriangle(float4 triangle[3])
     float2 edge2 = triangle[1].xy() - triangle[0].xy();
 
     // determine boundaries
-    USHORT xMin = std::min({ triangle[0].x, triangle[1].x, triangle[2].x });
-    USHORT xMax = std::max({ triangle[0].x, triangle[1].x, triangle[2].x });
-    USHORT yMin = std::min({ triangle[0].y, triangle[1].y, triangle[2].y });
-    USHORT yMax = std::max({ triangle[0].y, triangle[1].y, triangle[2].y });
+    int xMin = std::min({ triangle[0].x, triangle[1].x, triangle[2].x });
+    int xMax = std::max({ triangle[0].x, triangle[1].x, triangle[2].x });
+    int yMin = std::min({ triangle[0].y, triangle[1].y, triangle[2].y });
+    int yMax = std::max({ triangle[0].y, triangle[1].y, triangle[2].y });
 
     std::vector<color> colors{ color(255,0,0), color(0,255,0), color(0,0,255) };
 
-    for (USHORT x = xMin; x <= xMax; ++x)
-        for (USHORT y = yMin; y <= yMax; ++y)
+    for (int x = xMin; x <= xMax; ++x)
+        for (int y = yMin; y <= yMax; ++y)
         {
             // check screen boundaries
             if (x >= width || y >= height || x < 0 || y < 0) continue;

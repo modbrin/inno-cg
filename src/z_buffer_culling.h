@@ -8,7 +8,6 @@ class ZCulling: public TriangleRasterization
 {
 public:
 	ZCulling(USHORT width, USHORT height, const std::string& obj_file);
-	virtual ~ZCulling();
 
 	void DrawScene();
 	void Clear();

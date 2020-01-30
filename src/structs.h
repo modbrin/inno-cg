@@ -10,18 +10,18 @@ struct color
 	unsigned char b;
 
 	color()
-	{
-		r = 0;
-		g = 0;
-		b = 0;
-	}
+		:
+		r(0),
+		g(0),
+		b(0)
+	{}
 
 	color(unsigned char in_r, unsigned char in_g, unsigned char in_b)
-	{
-		r = in_r;
-		g = in_g;
-		b = in_b;
-	}
+		:
+		r(in_r),
+		g(in_g),
+		b(in_b)
+	{}
 
 	inline bool operator==(const color& rhs) const
 	{
@@ -33,4 +33,8 @@ struct color
 struct face
 {
 	float4 vertices[FACE_VERTEX_COUNT];
+	float3 texCoords[FACE_VERTEX_COUNT];
+	float3 normals[FACE_VERTEX_COUNT];
+	bool texCoordsPresent;
+	bool normalsPresent;
 };

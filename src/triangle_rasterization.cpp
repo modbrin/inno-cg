@@ -11,10 +11,6 @@ TriangleRasterization::TriangleRasterization(USHORT width, USHORT height, const 
 {
 }
 
-TriangleRasterization::~TriangleRasterization()
-{
-}
-
 void TriangleRasterization::DrawScene()
 {
     auto result = parser->Parse();

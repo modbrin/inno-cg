@@ -4,7 +4,7 @@
 
 #include "utils.h"
 
-#include "z_buffer_culling.h"
+#include "lighting.h"
 
 
 TEST_CASE("Triangle rasterization test") {
@@ -16,5 +16,5 @@ TEST_CASE("Triangle rasterization test") {
         image->DrawScene();
     };
 
-    REQUIRE(validate_framebuffer("references/z_buffer_culling.png", image->GetFrameBuffer()));
+    REQUIRE(validate_framebuffer("references/lighting.png", image->GetFrameBuffer()));
 }

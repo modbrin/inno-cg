@@ -4,9 +4,6 @@
 ColorSpace::ColorSpace(unsigned short width, unsigned short height) : BlackImage(width, height)
 {}
 
-ColorSpace::~ColorSpace()
-{}
-
 void ColorSpace::DrawScene()
 {
     for (USHORT x = 0; x < width; ++x)

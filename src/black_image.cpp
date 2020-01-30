@@ -19,13 +19,6 @@ BlackImage::BlackImage(USHORT width,
     frame_buffer.resize(width * height);
 }
 
-BlackImage::~BlackImage()
-{
-    frame_buffer.clear();
-    // not really required as vector is a handle for the memory
-    // an will clear itself as a stack value in object instance
-}
-
 void BlackImage::Clear()
 {
     std::fill(frame_buffer.begin(), frame_buffer.end(), default_fill_color);

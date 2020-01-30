@@ -106,6 +106,21 @@
       "name": "z_buffer_culling_tests.exe",
       "args": [ "--benchmark-samples", "25" ],
       "currentDir": "${workspaceRoot}"
+    },
+    {
+      "type": "default",
+      "project": "CMakeLists.txt",
+      "projectTarget": "lighting.exe",
+      "name": "lighting.exe",
+      "currentDir": "${workspaceRoot}"
+    },
+    {
+      "type": "default",
+      "project": "CMakeLists.txt",
+      "projectTarget": "lighting_tests.exe",
+      "name": "lighting_tests.exe",
+      "args": [ "--benchmark-samples", "25" ],
+      "currentDir": "${workspaceRoot}"
     }
   ]
 }

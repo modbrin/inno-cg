@@ -7,7 +7,6 @@ class ColorSpace : public BlackImage
 {
 public:
 	ColorSpace(unsigned short width, unsigned short height);
-	virtual ~ColorSpace();
 
 	void DrawScene();
 

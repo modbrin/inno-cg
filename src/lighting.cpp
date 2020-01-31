@@ -3,6 +3,8 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
 
+#include <iostream>
+
 Lighting::Lighting(USHORT width, USHORT height, const std::string& obj_file)
     : ZCulling(width, height, obj_file)
 {
@@ -98,8 +100,10 @@ void Lighting::DrawFace(face face)
                 w2 /= areaMul2;
                 auto z = (w0 * face.vertices[0] + w1 * face.vertices[1] + w2 * face.vertices[2]).z;
                 float2 texel = (w0 * face.texCoords[0] + w1 * face.texCoords[1] + w2 * face.texCoords[2]).xy();
+                texel.y = 1.f - texel.y;
                 USHORT texScaledX = texel.x * textureWidth, texScaledY = texel.y * textureHeight;
                 SetPixelWithZ(x, y, z, texture[textureWidth * texScaledY + texScaledX]);
+                //std::cout << (textureWidth * texScaledY + texScaledX) << std::endl;
             }
         }
 }

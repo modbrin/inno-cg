@@ -14,7 +14,7 @@ Projection::Projection(USHORT width, USHORT height, const std::string& obj_file)
 
 void Projection::ProjectScene(std::vector<face>& faces)
 {
-    auto angle = 30.f * M_PI / 180.f;
+    auto angle = 160.f * M_PI / 180.f;
 
     // World Matrix
     float4x4 rotateYM{
@@ -24,10 +24,12 @@ void Projection::ProjectScene(std::vector<face>& faces)
         {0, 0, 0, 1}
     };
 
+    float objScale = 4.f;
+
     float4x4 scaleM{
-        {1,0,0,0},
-        {0,1,0,0},
-        {0,0,1,0},
+        {objScale,0,0,0},
+        {0,objScale,0,0},
+        {0,0,objScale,0},
         {0,0,0,1}
     };
 
@@ -66,7 +68,7 @@ void Projection::ProjectScene(std::vector<face>& faces)
         {xScale,0,0,0},
         {0,yScale,0,0},
         {0,0,zf / (zf - zn),-zn * zf / (zf - zn)},
-        {0,0,2,0}
+        {0,0,1,0}
     };
 
     float4x4 finalM = mul(projectionM, mul(viewM, worldM));

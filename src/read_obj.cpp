@@ -127,9 +127,10 @@ int ObjParser::ParseFace(std::stringstream&& data)
         }
         else
         {
-            newFace.vertices[i++] = vertex;
-            if (texCoordPresent) newFace.texCoords[i++] = texCoord;
-            if (normalPresent) newFace.normals[i++] = normal;
+            newFace.vertices[i] = vertex;
+            if (texCoordPresent) newFace.texCoords[i] = texCoord;
+            if (normalPresent) newFace.normals[i] = normal;
+            ++i;
         }
         if (i >= 3)
             faces.push_back(newFace);

@@ -96,17 +96,17 @@ int ObjParser::ParseFace(std::stringstream&& data)
         
         if (vertexIdx == 0 || (texCoordPresent && texCoordIdx == 0) || (normalPresent && normalIdx == 0)) return 1;
         float4 vertex;
-        vertex = (vertexIdx < 0) ? vertices[vertices.size() + vertexIdx] : vertices[vertexIdx - 1];
+        vertex = (vertexIdx < 0) ? vertices[vertices.size() - vertexIdx] : vertices[vertexIdx - 1];
 
         float3 texCoord;
         if (texCoordPresent) {
-            texCoord = (texCoordIdx < 0) ? texCoords[texCoords.size() + texCoordIdx] : texCoords[texCoordIdx - 1];
+            texCoord = (texCoordIdx < 0) ? texCoords[texCoords.size() - texCoordIdx] : texCoords[texCoordIdx - 1];
             newFace.texCoordsPresent &= texCoordPresent;
         }
 
         float3 normal;
         if (normalPresent) {
-            normal = (normalIdx < 0) ? normals[normals.size() + normalIdx] : normals[normalIdx - 1];
+            normal = (normalIdx < 0) ? normals[normals.size() - normalIdx] : normals[normalIdx - 1];
             newFace.normalsPresent &= normalPresent;
         }
 

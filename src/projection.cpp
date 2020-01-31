@@ -24,7 +24,7 @@ void Projection::ProjectScene(std::vector<face>& faces)
         {0, 0, 0, 1}
     };
 
-    float objScale = 4.f;
+    float objScale = 1.f;
 
     float4x4 scaleM{
         {objScale,0,0,0},

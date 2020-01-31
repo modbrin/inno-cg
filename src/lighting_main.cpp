@@ -2,8 +2,8 @@
 
 int main(int argc, char* argv[])
 {
-    Lighting* render = new Lighting(1920, 1080, "models/head.obj");
-    int texLoaded = render->LoadTexture("models/lambertian.jpg");
+    Lighting* render = new Lighting(1920, 1080, "models/sphere.obj");
+    int texLoaded = render->LoadTexture("models/texel_density_2048.png");
     if (texLoaded != 0) return 1;
     render->Clear();
     render->DrawScene();

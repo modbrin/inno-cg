@@ -14,7 +14,7 @@ Projection::Projection(USHORT width, USHORT height, const std::string& obj_file)
 
 void Projection::ProjectScene(std::vector<face>& faces)
 {
-    auto angle = 160.f * M_PI / 180.f;
+    auto angle = 0.f * M_PI / 180.f;
 
     // World Matrix
     float4x4 rotateYM{

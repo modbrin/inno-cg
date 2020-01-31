@@ -105,42 +105,38 @@ void Lighting::DrawFace(face face)
 
                 // depth value interpolated from vertices
                 auto z = (w0 * face.vertices[0] + w1 * face.vertices[1] + w2 * face.vertices[2]).z;
-                
+
                 // interpolated texture coordinates
                 float2 texel = (w0 * face.texCoords[0] + w1 * face.texCoords[1] + w2 * face.texCoords[2]).xy();
                 texel.y = 1.f - texel.y; // FIXME: texture is flipped on the y axis
                 USHORT texScaledX = texel.x * textureWidth,
-                       texScaledY = texel.y * textureHeight;
-                
+                    texScaledY = texel.y * textureHeight;
+
                 // light calculation
-                color Ka = color(255, 255, 255); // ambient color
-                color Kd = texture[textureWidth
-                                   * texScaledY
-                                   + texScaledX]; // diffuse color
+                color Ka = color(255, 255, 255);  // ambient color
+                color Kd = texture[textureWidth * texScaledY + texScaledX]; // diffuse color
                 color Ks = color(255, 255, 255);  // specular color
-                const float Ns = 10.f;                  // specular exponent
-                float3 N = normalize(w0*face.normals[0]
-                                     + w1*face.normals[1]
-                                     + w2*face.normals[2]);    // surface normal vector
-                float3 L = normalize(float3(-0.5, -1, 0.5));   // global light vector
-                float3 V = float3(0, 0, 1);                    // view vector
+                const float Ns = 120.f;            // specular exponent
+                float3 N = normalize(w0 * face.normals[0] + w1 * face.normals[1] + w2 * face.normals[2]); // surface normal vector
+                float3 L = normalize(float3(-0.3, -1, -0.3));   // global light vector
+                float3 V = float3(0, 0, -1);                    // view vector
                 auto R = 2 * dot(L, N) * N - L;
-                float ia = .5f; // ambient blend factor
-                float id = 1.f; // diffuse blend factor
+                float ia = .2f; // ambient blend factor
+                float id = 0.8f; // diffuse blend factor
                 float is = 1.f; // specular blend factor
 
                 auto applyPhong = [&](auto Ka, auto Kd, auto Ks, auto Ns) {
-                        return std::clamp( Ka*ia              // ambient component
-                                           + Kd* dot(L, N)*id // diffuse component
-                                           + Ks * pow(std::max(0.f, dot(R, V)), Ns), 0.f, 255.f)*is; // specular component
-                        };
+                    return std::clamp(Ka * ia              // ambient component
+                        + Kd * dot(L, N) * id // diffuse component
+                        + Ks * pow(std::max(0.f, dot(R, V)), Ns), 0.f, 255.f) * is; // specular component
+                };
                 color phong = color(applyPhong((float)Kd.r, (float)Kd.r, (float)Ks.r, Ns),
-                                    applyPhong((float)Kd.g, (float)Kd.g, (float)Ks.g, Ns),
-                                    applyPhong((float)Kd.b, (float)Kd.b, (float)Ks.b, Ns));
+                    applyPhong((float)Kd.g, (float)Kd.g, (float)Ks.g, Ns),
+                    applyPhong((float)Kd.b, (float)Kd.b, (float)Ks.b, Ns));
 
                 SetPixelWithZ(x, y, z, phong);
-                
-                
+
+
             }
         }
 }

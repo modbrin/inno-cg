@@ -2,12 +2,10 @@
 
 ### Solutions for **Computer Graphics in Game Development** course assignment.
 
-<center>
-    <p float="left">
-      <img src="readme_assets/preview.png" width="400" />
-      <img src="readme_assets/preview_2.png" width="373" /> 
-    </p>
-</center>
+<p align="center">
+    <img src="readme_assets/preview.png" width="400" />
+    <img src="readme_assets/preview_2.png" width="373" /> 
+</p>
 
 > NOTE: shadow mapping is not implemented yet
 
@@ -32,9 +30,9 @@ At this point CMake project will be recognized by VS
 (if not, open CMakeLists.txt and click `Generate` in notification on top)
 * Select desired executable and run:
 
-<center>
+<p align="center">
   <img src="readme_assets/exe_selector.png" width="250" />
-</center>
+</p>
 
 B) Using Premake5
 * Get Premake from https://premake.github.io/

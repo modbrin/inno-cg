@@ -15,7 +15,7 @@ bool validate_framebuffer(std::string reference_file, std::vector<color> frame_b
 
     // Convert the reference to vector of colors
     std::vector<color> reference;
-    for (int i = 0; i < width * height; i++)
+    for (int i = 0; i < width * height; ++i)
     {
         color pixel;
         pixel.r = img[channels * i];
@@ -25,12 +25,15 @@ bool validate_framebuffer(std::string reference_file, std::vector<color> frame_b
     }
 
     // Compare with a frame buffer
-    bool result = (reference.size() == frame_buffer.size());
-    for (unsigned int i = 0; i < 1920 * 1080; i++)
+    if (reference.size() != frame_buffer.size()) return false;
+    for (unsigned int i = 0; i < 1920 * 1080; ++i)
     {
-        result &= (reference[i] == frame_buffer[i]);
+        if (reference[i] != frame_buffer[i])
+        {
+            return false;
+        }
     }
 
-    return result;
+    return true;
 
 }

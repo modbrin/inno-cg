@@ -27,6 +27,11 @@ struct color
 	{
 		return r == rhs.r && g == rhs.g && b == rhs.b;
 	}
+
+	inline bool operator!=(const color& rhs) const
+	{
+		return r != rhs.r || g != rhs.g || b != rhs.b;
+	}
 };
 
 #define FACE_VERTEX_COUNT 3

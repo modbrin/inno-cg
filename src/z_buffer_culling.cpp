@@ -30,23 +30,11 @@ void ZCulling::DrawScene()
 
     int counter = 0;
     for (const auto& face : faces) {
-        std::cout << "Done " << ++counter << " triangles." << std::endl;
         float4 triangle[3] = { face.vertices[0] * scale + float4(wShift, hShift, 0, 0),
                               face.vertices[1] * scale + float4(wShift, hShift, 0, 0),
                               face.vertices[2] * scale + float4(wShift, hShift, 0, 0) };
         DrawTriangle(triangle);
     }
-
-    /*for (const auto& face : faces)
-        for (int i = 0; i < FACE_VERTEX_COUNT; ++i)
-        {
-            DrawLine(
-                scale * face.vertices[i].x + wShift,
-                scale * face.vertices[i].y + hShift,
-                scale * face.vertices[(i + 1) % FACE_VERTEX_COUNT].x + wShift,
-                scale * face.vertices[(i + 1) % FACE_VERTEX_COUNT].y + hShift,
-                color(255, 255, 255));
-        }*/
 }
 
 #define MAX_Z_DEPTH 1000 //std::numeric_limits<float>().max()

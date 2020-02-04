@@ -354,3 +354,6 @@ MigrationBackup/
 
 # CMake Output
 /out
+
+# Obj models are allowed
+!models/*

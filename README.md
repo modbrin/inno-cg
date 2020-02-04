@@ -22,7 +22,7 @@ git submodule update --init --recursive
 ```
 
 3. Open in Visual Studio (tested with VS2019+):
-A) Using bundled CMake
+A) Using bundled CMake (recommended)
 * Open Visual Studio
 * Select `Open a local folder`
 * Navigate to and open project folder\
@@ -34,10 +34,12 @@ At this point CMake project will be recognized by VS
   <img src="readme_assets/exe_selector.png" width="250" />
 </p>
 
+* If elements are not showed or they fail to work, check out `(project root)/.vs/launch.vs.json` file to be same as in repository.
+
 B) Using Premake5
 * Get Premake from https://premake.github.io/
 ```batch
 cd inno-cg
-premake vs2019
+premake5 vs2019
 ```
 * Open generated solution

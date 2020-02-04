@@ -41,7 +41,7 @@ group "01. Black image"
       files { "lib/stb/stb_image.h", "tests/utils.h", "tests/black_image_tests.cpp" }
       links "Black image lib"
       debugargs { "--benchmark-samples", "25" }
---[[
+
 group "02. Color space"
    project "Color space lib"
       kind "StaticLib"
@@ -192,6 +192,31 @@ group "07. Z-buffer culling"
       links "Z buffer culling lib"
       debugargs { "--benchmark-samples", "25" }
 
+group "08. Lighting"
+   project "Lighting lib"
+      kind "StaticLib"
+      includedirs { "src/" }
+      includedirs { "lib/stb" }
+      includedirs { "lib/linalg"}
+      files { "lib/stb/stb_image_write.h", "lib/linalg/linalg.h",  "src/structs.h", "src/black_image.h", "src/black_image.cpp", "src/color_space.h", "src/color_space.cpp", "src/draw_line.h", "src/draw_line.cpp", "src/read_obj.h", "src/read_obj.cpp", "src/projection.h", "src/projection.cpp", "src/triangle_rasterization.h", "src/triangle_rasterization.cpp", "src/z_buffer_culling.h", "src/z_buffer_culling.cpp", "src/lighting.h", "src/lighting.cpp"  }
+      
+   project "Lighting app"
+      kind "ConsoleApp"
+      includedirs { "src" }
+      includedirs { "lib/linalg"}
+      links "Lighting lib"
+      files { "src/lighting_main.cpp" }
+
+   project "Lighting tests"
+      kind "ConsoleApp"
+      includedirs { "src" }
+      includedirs { "lib/stb" }
+      includedirs { "lib/linalg"}
+      includedirs { "lib/catch2/single_include/catch2" }
+      files { "lib/stb/stb_image.h", "tests/utils.h", "tests/lighting_tests.cpp" }
+      links "Lighting lib"
+      debugargs { "--benchmark-samples", "5" }
+--[[
 group "08. Phong model"
    project "Phong model lib"
       kind "StaticLib"

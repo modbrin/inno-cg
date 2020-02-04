@@ -119,7 +119,7 @@
       "project": "CMakeLists.txt",
       "projectTarget": "lighting_tests.exe",
       "name": "lighting_tests.exe",
-      "args": [ "--benchmark-samples", "25" ],
+      "args": [ "--benchmark-samples", "5" ],
       "currentDir": "${workspaceRoot}"
     }
   ]

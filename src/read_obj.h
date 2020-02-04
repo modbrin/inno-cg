@@ -20,7 +20,7 @@ private:
 protected:
 	std::string filename;
 
-	std::vector<float4> vertices;
+    std::vector<float4> vertices;
 	std::vector<float3> texCoords;
 	std::vector<float3> normals;
 	std::vector<face> faces;

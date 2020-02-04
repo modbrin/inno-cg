@@ -2,14 +2,15 @@
 #define CATCH_CONFIG_ENABLE_BENCHMARKING
 #include "catch.hpp"
 
-#include "utils.h"
+//#include "utils.h"
 
 #include "lighting.h"
 
 
 TEST_CASE("Triangle rasterization test") {
-    ZCulling* image = new ZCulling(1920, 1080, "models/cube.obj");
+    Lighting* image = new Lighting(1920, 1080, "models/uv_sphere.obj");
     image->Clear();
+    int texLoaded = image->LoadTexture("models/texel_density_2048.png");
 
     BENCHMARK("Draw scene")
     {

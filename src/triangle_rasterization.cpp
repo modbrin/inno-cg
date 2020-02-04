@@ -33,17 +33,6 @@ void TriangleRasterization::DrawScene()
                               face.vertices[2] * scale + float4(wShift, hShift, 0, 1) };
         DrawTriangle(triangle);
     }
-
-    /*for (const auto& face : faces)
-        for (int i = 0; i < FACE_VERTEX_COUNT; ++i)
-        {
-            DrawLine(
-                scale * face.vertices[i].x + wShift,
-                scale * face.vertices[i].y + hShift,
-                scale * face.vertices[(i + 1) % FACE_VERTEX_COUNT].x + wShift,
-                scale * face.vertices[(i + 1) % FACE_VERTEX_COUNT].y + hShift,
-                color(255, 255, 255));
-        }*/
 }
 
 void TriangleRasterization::DrawTriangle(float4 triangle[3])

@@ -21,7 +21,7 @@ struct color
 		r(in_r),
 		g(in_g),
 		b(in_b)
-	{}
+    {}
 
 	inline bool operator==(const color& rhs) const
 	{

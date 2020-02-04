@@ -27,7 +27,7 @@ TEST_CASE("OBJ parser test") {
 }
 
 TEST_CASE("Read OBJ test") {
-    ReadObj* image = new ReadObj(1920, 1080, "models/cube.obj");
+    ReadObj* image = new ReadObj(1920, 1080, "models/uv_sphere.obj");
     image->Clear();
 
     BENCHMARK("Draw scene")

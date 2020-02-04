@@ -17,7 +17,7 @@ public:
     void Clear();
     int Save(const std::string& filename) const;
 
-    std::vector<color> GetFrameBuffer() const; 
+    std::vector<color> GetFrameBuffer() const;
 protected:
     unsigned short height;
     unsigned short width;

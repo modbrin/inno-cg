@@ -2,7 +2,7 @@
 
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
-
+#include "stb.h"
 #include "structs.h"
 
 bool validate_framebuffer(std::string reference_file, std::vector<color> frame_buffer)

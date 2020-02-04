@@ -96,17 +96,17 @@ int ObjParser::ParseFace(std::stringstream&& data)
         
         if (vertexIdx == 0 || (texCoordPresent && texCoordIdx == 0) || (normalPresent && normalIdx == 0)) return 1;
         float4 vertex;
-        vertex = (vertexIdx < 0) ? vertices[vertices.size() - vertexIdx] : vertices[vertexIdx - 1];
+        vertex = (vertexIdx < 0) ? vertices[vertices.size() + vertexIdx] : vertices[vertexIdx - 1];
 
         float3 texCoord;
         if (texCoordPresent) {
-            texCoord = (texCoordIdx < 0) ? texCoords[texCoords.size() - texCoordIdx] : texCoords[texCoordIdx - 1];
+            texCoord = (texCoordIdx < 0) ? texCoords[texCoords.size() + texCoordIdx] : texCoords[texCoordIdx - 1];
             newFace.texCoordsPresent &= texCoordPresent;
         }
 
         float3 normal;
         if (normalPresent) {
-            normal = (normalIdx < 0) ? normals[normals.size() - normalIdx] : normals[normalIdx - 1];
+            normal = (normalIdx < 0) ? normals[normals.size() + normalIdx] : normals[normalIdx - 1];
             newFace.normalsPresent &= normalPresent;
         }
 
@@ -146,7 +146,7 @@ int ObjParser::Parse()
 
     while (getline(infile, line))
     {
-        std::stringstream ss{line};
+        std::stringstream ss{ line };
         ss >> prefix;
         if (prefix == "v")
             ParseVertex(std::move(ss));
@@ -189,7 +189,7 @@ void ReadObj::DrawScene()
     auto result = parser->Parse();
     if (result != 0) throw std::runtime_error("Parsing Failed");
 
-    int scale = std::min(width, height);
+    int scale = 0.3 * std::min(width, height);
 
     std::array<color, 3> colors{ color(255,0,0), color(0,255,0), color(0,0,255) };
     
@@ -199,10 +199,10 @@ void ReadObj::DrawScene()
         for (int i = 0; i < FACE_VERTEX_COUNT; ++i)
         {
             DrawLine(
-                0.9 * scale * face.vertices[i].x + width / 2,
-                0.9 * scale * face.vertices[i].y + height / 2,
-                0.9 * scale * face.vertices[(i + 1) % FACE_VERTEX_COUNT].x + width / 2,
-                0.9 * scale * face.vertices[(i + 1) % FACE_VERTEX_COUNT].y + height / 2,
+                scale * face.vertices[i].x + width / 2,
+                scale * face.vertices[i].y + height / 2,
+                scale * face.vertices[(i + 1) % FACE_VERTEX_COUNT].x + width / 2,
+                scale * face.vertices[(i + 1) % FACE_VERTEX_COUNT].y + height / 2,
                 colors[i % 3]);
         }
 }

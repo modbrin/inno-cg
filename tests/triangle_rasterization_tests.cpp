@@ -8,7 +8,7 @@
 
 
 TEST_CASE("Triangle rasterization test") {
-    TriangleRasterization* image = new TriangleRasterization(1920, 1080, "models/cube.obj");
+    TriangleRasterization* image = new TriangleRasterization(1920, 1080, "models/uv_sphere.obj");
     image->Clear();
 
     BENCHMARK("Draw scene")

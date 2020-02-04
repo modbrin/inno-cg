@@ -14,13 +14,22 @@ Projection::Projection(USHORT width, USHORT height, const std::string& obj_file)
 
 void Projection::ProjectScene(std::vector<face>& faces)
 {
-    auto angle = 0.f * M_PI / 180.f;
+    auto angleY = 30.f * M_PI / 180.f;
 
     // World Matrix
     float4x4 rotateYM{
-        {static_cast<float>(cos(angle)), 0, static_cast<float>(-sin(angle)), 0},
+        {static_cast<float>(cos(angleY)), 0, static_cast<float>(-sin(angleY)), 0},
         {0, 1, 0, 0},
-        {static_cast<float>(sin(angle)), 0, static_cast<float>(cos(angle)), 0},
+        {static_cast<float>(sin(angleY)), 0, static_cast<float>(cos(angleY)), 0},
+        {0, 0, 0, 1}
+    };
+
+    auto angleX = 0.f * M_PI / 180.f;
+
+    float4x4 rotateXM{
+        {1, 0, 0, 0},
+        {0, static_cast<float>(cos(angleX)), static_cast<float>(sin(angleX)), 0},
+        {0, static_cast<float>(-sin(angleX)), static_cast<float>(cos(angleX)), 0},
         {0, 0, 0, 1}
     };
 
@@ -37,10 +46,10 @@ void Projection::ProjectScene(std::vector<face>& faces)
         {1,0,0,0},
         {0,1,0,0},
         {0,0,1,0},
-        {0,0,1,1}
+        {0,0,2,1}
     };
 
-    float4x4 worldM = mul(translateM, mul(rotateYM, scaleM));
+    float4x4 worldM = mul(translateM, mul(rotateXM, mul(rotateYM, scaleM)));
 
     // View Matrix
     float3 eyeV{ 0, 0, 0 }, atV{ 0, 0, 1 }, upV{ 0, 1, 0 };
